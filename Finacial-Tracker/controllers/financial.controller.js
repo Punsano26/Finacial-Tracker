@@ -27,6 +27,28 @@ exports.create = async (req, res) => {
     });
 };
 
+//get By ID financial
+exports.getFinancialByID = async (req, res) => {
+   const userId = req.params.userId;
+   await Financial.findByPk(userId)
+     .then((data) => {
+      if(!data) {
+        res.status(400).send({
+          message: "Not found Financial with id" + userId,
+        })
+      } else {
+        res.send(data);
+      }
+     })
+     .catch((error) => {
+       res.status(500).send({
+         message:
+           error.message ||
+           "Some error occured while saving the financial record",
+       });
+     });
+}
+
 //retreive all financial records
 exports.findAll = async (req, res) => {
   await Financial.create(newRecord)
@@ -42,56 +64,21 @@ exports.findAll = async (req, res) => {
     });
 };
 
-//retreive all financial records
-exports.findOne = async (req, res) => {
-    const userId = req.params.userId;
-    const newRecord = {
-      userId,
-      date,
-      description,
-      amount,
-      category,
-      paymentMethod,
-    };
-    await Financial.create(newRecord)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((error) => {
-        res.status(500).send({
-          message:
-            error.message ||
-            "Some error occured while saving the financial record",
-        });
-      });
-}
-
-//Retrireve all financial record by User Id
+//Retrieve all financial records by User ID
 exports.findAllByUserID = async (req, res) => {
-   const userId = req.params.userId; 
-   //Selcect
-   const newRecord = {
-     userId,
-     date,
-     description,
-     amount,
-     category,
-     paymentMethod,
-   };
-   await Financial.create(newRecord)
-     .then((data) => {
-       res.send(data);
-     })
-     .catch((error) => {
-       res.status(500).send({
-         message:
-           error.message ||
-           "Some error occured while saving the financial record",
-       });
-     });
-}
-
-
+  const userId = req.params.userId;
+await Financial.findAll({
+  where: {
+    userId: userId,
+  },
+}).then((data) => {
+  res.send(data);})
+.catch((error) =>{
+  res.status(500).send({
+    message: error.message || "Some error occured while retrieving financial records.",
+  });
+});
+};
 
 //Update a financial record by ID
 exports.update = async (req,res)=> {
