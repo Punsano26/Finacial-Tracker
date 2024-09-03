@@ -13,3 +13,10 @@ module.exports = {
     idle: 10000,
   },
 };
+ 
+// ENV file
+// HOST: "ep-snowy-sea-a125sqdi-pooler.ap-southeast-1.aws.neon.tech"
+// USER: "default"
+// PASSWORD: "LlWspDTx76Vz"
+// DB: "verceldb"
+// dialect: "postgres"

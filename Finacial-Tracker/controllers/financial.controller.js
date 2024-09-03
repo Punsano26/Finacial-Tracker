@@ -2,10 +2,10 @@ const Financial = require("../models/finacial.model");
 
 //create a new Financial record
 exports.create = async (req, res) => {
-  const { userId, date, description, amount, category, paymentMethod } =
+  const { userID, date, description, amount, category, paymentMethod } =
     req.body;
   const newRecord = {
-    userId,
+    userID,
     date,
     description,
     amount,
@@ -29,12 +29,12 @@ exports.create = async (req, res) => {
 
 //get By ID financial
 exports.getFinancialByID = async (req, res) => {
-   const userId = req.params.userId;
-   await Financial.findByPk(userId)
+   const userID = req.params.userID;
+   await Financial.findByPk(userID)
      .then((data) => {
       if(!data) {
         res.status(400).send({
-          message: "Not found Financial with id" + userId,
+          message: "Not found Financial with id" + userID,
         })
       } else {
         res.send(data);
@@ -66,10 +66,10 @@ exports.findAll = async (req, res) => {
 
 //Retrieve all financial records by User ID
 exports.findAllByUserID = async (req, res) => {
-  const userId = req.params.userId;
+  const userID = req.params.userID;
 await Financial.findAll({
   where: {
-    userId: userId,
+    userID: userID,
   },
 }).then((data) => {
   res.send(data);})

@@ -3,6 +3,7 @@ const express = require("express");
 const router  = express.Router();
 
 //create a new 
+// http://localhost:9999/api/v1/financial/
 router.post(
     "/", finacialController.create
 )
@@ -13,7 +14,7 @@ router.get("/", finacialController.findAll);
 router.get("/:id", finacialController.findAllByUserID);
 
 //Retrieve all financial records By UserId
-router.get("/user/:userId", finacialController.getFinancialByID);
+router.get("/user/:userID", finacialController.getFinancialByID);
 
 //Update a financial record with id
 router.put("/:id", finacialController.update);
