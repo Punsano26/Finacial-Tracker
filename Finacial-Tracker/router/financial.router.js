@@ -11,10 +11,11 @@ router.post(
 router.get("/", finacialController.findAll);
 
 //Retrieve a financial record with id
-router.get("/:id", finacialController.findAllByUserID);
+router.get("/:id", finacialController.getFinancialByID);
 
 //Retrieve all financial records By UserId
-router.get("/user/:userID", finacialController.getFinancialByID);
+// http://localhost:9999/api/v1/financial/user/
+router.get("/user/:userID", finacialController.findAllByUserID);
 
 //Update a financial record with id
 router.put("/:id", finacialController.update);

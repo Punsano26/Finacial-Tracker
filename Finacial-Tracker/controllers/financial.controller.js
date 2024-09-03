@@ -29,16 +29,17 @@ exports.create = async (req, res) => {
 
 //get By ID financial
 exports.getFinancialByID = async (req, res) => {
-   const userID = req.params.userID;
-   await Financial.findByPk(userID)
+   const id = req.params.id;
+   console.log(req.params.id);
+   await Financial.findByPk(id)
      .then((data) => {
-      if(!data) {
-        res.status(400).send({
-          message: "Not found Financial with id" + userID,
-        })
-      } else {
-        res.send(data);
-      }
+       if (!data) {
+         res.status(400).send({
+           message: "Not found Financial with id" + id,
+         });
+       } else {
+         res.send(data);
+       }
      })
      .catch((error) => {
        res.status(500).send({
@@ -51,7 +52,7 @@ exports.getFinancialByID = async (req, res) => {
 
 //retreive all financial records
 exports.findAll = async (req, res) => {
-  await Financial.create(newRecord)
+  await Financial.findAll()
     .then((data) => {
       res.send(data);
     })
