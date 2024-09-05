@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function AddFinanciallist() {
+const AddFinanciallist = () => {
   const [formData, setFormData] = useState({
     userID: "",
     date: "",
