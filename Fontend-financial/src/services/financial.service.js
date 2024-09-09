@@ -8,7 +8,7 @@ const getAllFinancialRecords = async (userID) => {
 
 //get all financial record by user id
 const getFinancialRecordByuserID = async (userID) => {
-    return await api.get(`${FINANCIAL_API_URL}?userID=${userID}`);
+    return await api.get(`${FINANCIAL_API_URL}/user/${userID}`);
 }
 
 
@@ -24,13 +24,13 @@ const createFinancialRecord = async (record) => {
 }
 
 //update a reccord
-const updateFinancialRecord = async (record) => {
+const updateFinancialRecord = async (id,record) => {
     return await api.put(`${FINANCIAL_API_URL}/${id}`, record);
 }
 
 //delete a record
-const deleteFinancialRecord = async (record) => {
-    return await api.delete(`${FINANCIAL_API_URL}/${id}`, record);
+const deleteFinancialRecord = async (id) => {
+    return await api.delete(`${FINANCIAL_API_URL}/${id}`);
 }
 
 
@@ -41,6 +41,6 @@ const FinancialService = {
     createFinancialRecord,
     updateFinancialRecord,
     deleteFinancialRecord,
-}
+};
 
 export default FinancialService;

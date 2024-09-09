@@ -1,6 +1,12 @@
 import React from 'react'
-import { useFinancialRecords } from "../../contexts/financial.comtext"
+import { useFinancialRecords } from "../../contexts/financial.context"
+import { useNavigate } from 'react-router-dom';
+
 const FinancialRecordTable = () => {
+  //Remove Record
+  const {records, deleteRecord} = useFinancialRecords();
+  const navigate = useNavigate
+  
   return (
     <table class="table-auto">
       <thead>
@@ -11,23 +17,25 @@ const FinancialRecordTable = () => {
           <th>amount</th>
           <th>category</th>
           <th>paymentMethod</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
         {records &&
           records.map((record) => (
-            <tr key={record.id} className="hover:bg-black">
-              <td className="py-2 px-4 border-b">record.userID</td>
-              <td className="py-2 px-4 border-b">{FormData(record.date)}</td>
-              <td className="py-2 px-4 border-b">record.description</td>
-              <td className="py-2 px-4 border-b">record.amount</td>
-              <td className="py-2 px-4 border-b">record.category</td>
-              <td className="py-2 px-4 border-b">record.paymentMethod</td>
+            <tr key={record.id} className="hover:bg-white">
+              <td className="py-2 px-4 border-b">{record.userID}</td>
+              <td className="py-2 px-4 border-b">{record.date}</td>
+              <td className="py-2 px-4 border-b">{record.description}</td>
+              <td className="py-2 px-4 border-b">{record.amount}</td>
+              <td className="py-2 px-4 border-b">{record.category}</td>
+              <td className="py-2 px-4 border-b">{record.paymentMethod}</td>
               <td className="py-2 px-4 border-b">
                 <button>Edit</button>
               </td>
               <td className="py-2 px-4 border-b">
-                <button>Edit</button>
+                <button>Delete</button>
               </td>
             </tr>
           ))}
