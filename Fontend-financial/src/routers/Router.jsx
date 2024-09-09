@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import Dashbord from "../pages/dashbord";
+import EditRecordForm from "../pages/EditRecordForm";
 import { FinancialRecordProvider } from "../contexts/financial.context";
 
 const router = createBrowserRouter([
@@ -21,6 +22,14 @@ const router = createBrowserRouter([
           </FinancialRecordProvider>
         ),
       },
+      {
+       path: "editRecordForm/:id",
+       element: (
+        <FinancialRecordProvider>
+          <EditRecordForm />
+        </FinancialRecordProvider>
+       ),
+      }
     ],
   },
 ]);

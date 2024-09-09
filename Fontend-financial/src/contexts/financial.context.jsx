@@ -37,9 +37,9 @@ export const FinancialRecordProvider = ({ children }) => {
     }
   };
 
-  const updateRecord = async (id, newRecord) => {
+  const updateFinancialRecord = async (id, newRecord) => {
     try {
-      const response = await FinancialService.updateRecord(
+      const response = await FinancialService.updateFinancialRecord(
         id, 
         newRecord
       );
@@ -53,9 +53,9 @@ export const FinancialRecordProvider = ({ children }) => {
     }
 };
 
-const deleteRecord = async (id) => {
+const deleteFinancialRecord = async (id) => {
   try {
-    const response = await FinancialService.deleteRecord(id);
+    const response = await FinancialService.deleteFinancialRecord(id);
     if (response.status === 200) {
       setRecords((prev) => prev.filter((record) => record.id !== id));
     }
@@ -69,8 +69,8 @@ return (
     value={{
       records,
       addRecoord,
-      updateRecord,
-      deleteRecord,
+      updateFinancialRecord,
+      deleteFinancialRecord,
     }}
   >
     {children}
