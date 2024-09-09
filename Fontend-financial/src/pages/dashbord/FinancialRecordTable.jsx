@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { useFinancialRecords } from "../../contexts/financial.comtext"
 const FinancialRecordTable = () => {
   return (
     <table class="table-auto">
@@ -14,21 +14,23 @@ const FinancialRecordTable = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-          <td>Malcolm Lockyer</td>
-          <td>1961</td>
-        </tr>
-        <tr>
-          <td>Witchy Woman</td>
-          <td>The Eagles</td>
-          <td>1972</td>
-        </tr>
-        <tr>
-          <td>Shining Star</td>
-          <td>Earth, Wind, and Fire</td>
-          <td>1975</td>
-        </tr>
+        {records &&
+          records.map((record) => (
+            <tr key={record.id} className="hover:bg-black">
+              <td className="py-2 px-4 border-b">record.userID</td>
+              <td className="py-2 px-4 border-b">{FormData(record.date)}</td>
+              <td className="py-2 px-4 border-b">record.description</td>
+              <td className="py-2 px-4 border-b">record.amount</td>
+              <td className="py-2 px-4 border-b">record.category</td>
+              <td className="py-2 px-4 border-b">record.paymentMethod</td>
+              <td className="py-2 px-4 border-b">
+                <button>Edit</button>
+              </td>
+              <td className="py-2 px-4 border-b">
+                <button>Edit</button>
+              </td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );
