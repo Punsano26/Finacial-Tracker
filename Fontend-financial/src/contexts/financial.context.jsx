@@ -12,7 +12,7 @@ export const FinancialRecordProvider = ({ children }) => {
   const fetchRecords = async () => {
     if (!user) return;
     try {
-      const response = await FinancialService.getAllFinancialRecords(
+      const response = await FinancialService.getFinancialRecordByuserID(
         user.id
       );
       if (response.status === 200) {
