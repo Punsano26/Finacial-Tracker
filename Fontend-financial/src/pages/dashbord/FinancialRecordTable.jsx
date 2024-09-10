@@ -39,41 +39,53 @@ const handleEdit = (record) => {
     return date.toLocaleDateString('en-US', options);
   }
   return (
-    <table class="table-auto">
+    <div className="overflow-x-auto p-4">
+    <table className="table w-full border-collapse border-spacing-0">
+      {/* Table Head */}
       <thead>
-        <tr>
-          <th>userID</th>
-          <th>date</th>
-          <th>description</th>
-          <th>amount</th>
-          <th>category</th>
-          <th>paymentMethod</th>
-          <th>Edit</th>
-          <th>Delete</th>
+        <tr className="bg-neutral text-white">
+          <th className="py-3 px-4 text-left">User ID</th>
+          <th className="py-3 px-4 text-left">Date</th>
+          <th className="py-3 px-4 text-left">Description</th>
+          <th className="py-3 px-4 text-left">Amount</th>
+          <th className="py-3 px-4 text-left">Category</th>
+          <th className="py-3 px-4 text-left">Payment Method</th>
+          <th className="py-3 px-4 text-left">Edit</th>
+          <th className="py-3 px-4 text-left">Delete</th>
         </tr>
       </thead>
+      {/* Table Body */}
       <tbody>
         {records &&
-          records.map((record) => (
-            <tr key={record.id} className="hover:bg-white">
-              <td className="py-2 px-4 border-b">{record.userID}</td>
-              <td className="py-2 px-4 border-b">{ADate(record.date)}</td>
-              <td className="py-2 px-4 border-b">{record.description}</td>
-              <td className="py-2 px-4 border-b">{record.amount}</td>
-              <td className="py-2 px-4 border-b">{record.category}</td>
-              <td className="py-2 px-4 border-b">{record.paymentMethod}</td>
-              <td className="py-2 px-4 border-b">
-                <button className='hover:text-blue-500'
-                onClick={() => handleEdit(record)}>Edit</button>
+          records.map((record, index) => (
+            <tr key={record.id} className={`hover:bg-neutral-100 ${index % 2 === 0 ? 'bg-white' : 'bg-neutral-50'}`}>
+              <td className="py-3 px-4 border-b">{record.userID}</td>
+              <td className="py-3 px-4 border-b">{ADate(record.date)}</td>
+              <td className="py-3 px-4 border-b">{record.description}</td>
+              <td className="py-3 px-4 border-b">{record.amount}</td>
+              <td className="py-3 px-4 border-b">{record.category}</td>
+              <td className="py-3 px-4 border-b">{record.paymentMethod}</td>
+              <td className="py-3 px-4 border-b">
+                <button
+                  className="btn btn-sm btn-outline btn-info"
+                  onClick={() => handleEdit(record)}
+                >
+                  Edit
+                </button>
               </td>
-              <td className="py-2 px-4 border-b">
-                <button className= 'hover:text-red-500'
-                onClick={() => handleDelete(record)}>Delete</button>
+              <td className="py-3 px-4 border-b">
+                <button
+                  className="btn btn-sm btn-outline btn-error"
+                  onClick={() => handleDelete(record)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
       </tbody>
     </table>
+  </div>
   );
 }
 

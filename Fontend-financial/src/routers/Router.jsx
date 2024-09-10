@@ -1,9 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
+import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
-import Home from "../pages/Home";
-import Dashbord from "../pages/dashbord";
-import EditRecordForm from "../pages/EditRecordForm";
 import { FinancialRecordProvider } from "../contexts/financial.context";
+// import Home from "../pages/Home";
+const Home = lazy(() => import("../pages/Home"));
+import Dashbord from "../pages/dashbord";
+// const Dashbord = lazy(() => import("../pages/dashbord"));
+// import EditRecordForm from "../pages/EditRecordForm";
+const EditRecordForm = lazy(() => import("../pages/EditRecordForm"));
+
 
 const router = createBrowserRouter([
   {

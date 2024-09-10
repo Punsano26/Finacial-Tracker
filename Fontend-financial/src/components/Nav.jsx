@@ -27,7 +27,7 @@ const Nav = () => {
     }, [theme]);
 
   return (
-    <div className="navbar bg-gray-500 ">
+    <div className="navbar bg-gray-500 shadow-lg">
       <div className="flex-1">
         <a className="btn btn-ghost text-xl" href="/">
           <span className="text-yellow-500 font-bold text-3xl">SE NPRU</span>{" "}

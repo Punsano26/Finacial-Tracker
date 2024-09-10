@@ -19,7 +19,7 @@ const Dashbord = () => {
   });
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
-      <div className="">Welcome <span className="text-yellow-400">{user?.firstName}</span>! Here is your financial record:</div>
+      <div className="text-lg font-bold mb-4">Welcome <span className="text-yellow-400">{user?.firstName}</span>! Here is your financial record:</div>
       <AddRecordForm />
       <div>
         <span className="text-red-400">Total Monthly : </span> 
