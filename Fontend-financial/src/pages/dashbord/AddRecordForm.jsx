@@ -9,7 +9,6 @@ const AddRecordForm = () => {
   const [financials, setFiancials] = useState({
     date: new Date().toISOString().split("T")[0],
     description: "",
-    type: "expense",
     amount: "",
     category: "",
     paymentMethod: "",
@@ -23,7 +22,7 @@ const AddRecordForm = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:9999/api/v1/financial/", 
+        "https://finacial-tracker.onrender.com/api/v1/financial/", 
         {...financials, userID: user.id,
       });
       if (response.status === 200) {
@@ -38,7 +37,6 @@ const AddRecordForm = () => {
         setFiancials({
           date: new Date().toISOString().split("T")[0],
           description: "",
-          type: "expense",
           amount: "",
           category: "",
           paymentMethod: "",
@@ -95,24 +93,6 @@ const AddRecordForm = () => {
             name="description"
             required
             value={financials.description}
-            onChange={handleChange}
-            className="bg-neutral-400 w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label
-            className="block text-amber-200 text-sm font-bold mb-2"
-            htmlFor="type"
-          >
-            Type
-          </label>
-          <textarea
-          type="text"
-            id="type"
-            name="type"
-            required
-            value={financials.type}
             onChange={handleChange}
             className="bg-neutral-400 w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
