@@ -1,7 +1,7 @@
 import React from "react";
 import { useFinancialRecords } from "../../contexts/financial.context";
 import { useNavigate } from "react-router-dom";
-import { format } from "date-fns";
+
 import Swal from "sweetalert2";
 
 const FinancialRecordTable = () => {
