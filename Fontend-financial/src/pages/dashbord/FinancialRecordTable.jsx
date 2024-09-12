@@ -48,7 +48,6 @@ const FinancialRecordTable = () => {
             <th className="py-3 px-4 text-left">User ID</th>
             <th className="py-3 px-4 text-left">Date</th>
             <th className="py-3 px-4 text-left">Description</th>
-            <th className="py-3 px-4 text-left">Type</th>
             <th className="py-3 px-4 text-left">Amount</th>
             <th className="py-3 px-4 text-left">Category</th>
             <th className="py-3 px-4 text-left">Payment Method</th>
@@ -69,7 +68,6 @@ const FinancialRecordTable = () => {
                 <td className="py-3 px-4 border-b">{record.userID}</td>
                 <td className="py-3 px-4 border-b">{ADate(record.date)}</td>
                 <td className="py-3 px-4 border-b">{record.description}</td>
-                <td className="py-3 px-4 border-b">{record.type}</td>
                 <td className="py-3 px-4 border-b">{record.amount}</td>
                 <td className="py-3 px-4 border-b">{record.category}</td>
                 <td className="py-3 px-4 border-b">{record.paymentMethod}</td>
