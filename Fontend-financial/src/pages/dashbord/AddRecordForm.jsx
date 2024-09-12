@@ -108,11 +108,11 @@ const AddRecordForm = () => {
             Type
           </label>
           <textarea
-          type="radio"
+          type="text"
             id="type"
             name="type"
             required
-            value={financials.description}
+            value={financials.type}
             onChange={handleChange}
             className="bg-neutral-400 w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
