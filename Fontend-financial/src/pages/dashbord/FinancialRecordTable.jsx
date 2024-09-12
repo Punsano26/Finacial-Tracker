@@ -1,6 +1,7 @@
 import React from "react";
 import { useFinancialRecords } from "../../contexts/financial.context";
 import { useNavigate } from "react-router-dom";
+import { format } from "date-fns";
 import Swal from "sweetalert2";
 
 const FinancialRecordTable = () => {
@@ -47,6 +48,7 @@ const FinancialRecordTable = () => {
             <th className="py-3 px-4 text-left">User ID</th>
             <th className="py-3 px-4 text-left">Date</th>
             <th className="py-3 px-4 text-left">Description</th>
+            <th className="py-3 px-4 text-left">Type</th>
             <th className="py-3 px-4 text-left">Amount</th>
             <th className="py-3 px-4 text-left">Category</th>
             <th className="py-3 px-4 text-left">Payment Method</th>
@@ -67,6 +69,7 @@ const FinancialRecordTable = () => {
                 <td className="py-3 px-4 border-b">{record.userID}</td>
                 <td className="py-3 px-4 border-b">{ADate(record.date)}</td>
                 <td className="py-3 px-4 border-b">{record.description}</td>
+                <td className="py-3 px-4 border-b">{record.type}</td>
                 <td className="py-3 px-4 border-b">{record.amount}</td>
                 <td className="py-3 px-4 border-b">{record.category}</td>
                 <td className="py-3 px-4 border-b">{record.paymentMethod}</td>
@@ -74,7 +77,7 @@ const FinancialRecordTable = () => {
                 <td className="py-3 px-4 border-b">
                   <svg
                     class="h-8 w-8 text-slate-500 hover:text-blue-500"
-                    onClick={() =>handleEdit(record)}
+                    onClick={() => handleEdit(record)}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

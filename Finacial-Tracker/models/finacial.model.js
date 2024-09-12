@@ -15,6 +15,10 @@ const Financial = sequelize.define("financial", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  type:{
+    type: DataTypes.STRING,
+    allowNull:false
+  },
   date: {
     type: DataTypes.DATE,
     allowNull: false,

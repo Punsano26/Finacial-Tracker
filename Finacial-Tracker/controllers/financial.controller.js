@@ -8,6 +8,7 @@ exports.create = async (req, res) => {
     userID,
     date,
     description,
+    type,
     amount,
     category,
     paymentMethod,
