@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const FinancialRecordTable = () => {
-  //Remove Record
+  //Remove 
   const { records, deleteFinancialRecord } = useFinancialRecords();
   const navigate = useNavigate();
 
