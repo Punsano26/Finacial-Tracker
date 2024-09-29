@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useUser } from "@clerk/clerk-react";
 import Swal from "sweetalert2";
+import { addFinancialRecord} from "../../services/financial.service"
 
 const AddRecordForm = () => {
   const { user } = useUser();
@@ -21,10 +22,8 @@ const AddRecordForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "https://finacial-tracker.onrender.com/api/v1/financial/", 
-        {...financials, userID: user.id,
-      });
+      const response = await addFinancialRecord(financials, user.id);
+      console.log(response);
       if (response.status === 200) {
         Swal.fire({
           title: "Add financial list successfully",
